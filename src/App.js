@@ -4,6 +4,7 @@ import statisticalData from './components/statistics/statistics.json';
 import Statistics from './components/statistics/Statistics';
 import user from './components/user/user.json';
 import UserMarkup from './components/user/User';
+// import { friends, FriendList } from './components/friends/index';
 import friends from './components/friends/friends.json';
 import FriendList from './components/friends/FriendsList';
 

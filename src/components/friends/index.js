@@ -1,2 +1,1 @@
-// import friends from './friends.json';
-// import FriendList from './FriendsList';
+export { default } from './FriendsList';

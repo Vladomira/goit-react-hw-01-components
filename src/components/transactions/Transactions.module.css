@@ -1,0 +1,25 @@
+.transaction__history {
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background-color: rgb(233, 147, 17);
+  padding: 8px 8px;
+  box-shadow: -1px -4px 13px 0px rgba(34, 60, 80, 0.2);
+}
+.header {
+  min-width: 200px;
+  padding: 15px 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  background-color: brown;
+}
+
+.data {
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgb(96, 115, 201);
+  padding: 30px 30px;
+  font-weight: 500;
+  font-size: 24px;
+}

@@ -1,40 +1,37 @@
 import statisticalData from './statistics.json';
-
+import styles from './Statistics.module.css';
 const data = statisticalData;
 
-const Statistic = (title, stats) => {
-  const isExist = true;
-  return (
-    <section className="statistics">
-      <h2 className="title"> {isExist && 'Upload stats'}</h2>
+function generateRandomColor() {
+  let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
+  while (color.length < 6) {
+    color = '0' + color;
+  }
+  return '#' + color;
+}
 
-      <ul className="stat-list">
-        {data.map(el => {
-          const { label, id, percentage } = el;
-          return (
-            <li className="item" key={id}>
-              <span className="label">{label}</span>
-              <span className="percentage"> {percentage}%</span>
-            </li>
-          );
-        })}
-        {/* <li className="item">
-          <span className="label">.docx</span>
-          <span className="percentage">4%</span>
-        </li> */}
-        {/* <li className="item">
-          <span className="label">.mp3</span>
-          <span className="percentage">14%</span>
-        </li>
-        <li className="item">
-          <span className="label">.pdf</span>
-          <span className="percentage">41%</span>
-        </li>
-        <li className="item">
-          <span className="label">.mp4</span>
-          <span className="percentage">12%</span>
-        </li> */}
-      </ul>
+const Statistic = ({ title, stats }) => {
+  return (
+    <section className={styles.statistics}>
+      <div className={styles.container}>
+        {title && <h2 className={styles.title}>{title}</h2>}
+
+        <ul className={styles.stat__list}>
+          {data.map(el => {
+            const { label, id, percentage } = el;
+            return (
+              <li
+                className={styles.item}
+                key={id}
+                style={{ backgroundColor: generateRandomColor() }}
+              >
+                <span className={styles.label}>{label}</span>
+                <span className={styles.percentage}> {percentage}%</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   );
 };

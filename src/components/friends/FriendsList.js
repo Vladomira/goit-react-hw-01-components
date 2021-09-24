@@ -1,26 +1,37 @@
 import PropTypes from 'prop-types';
 import friendsData from './friends.json';
-// ЗАВАНТАЖИТИ ФОТО ЛЮДЕЙ
+import st from './Friends.module.css';
+
 const FriendsList = title => {
   const friends = friendsData;
   return (
-    <ul className="friend-list">
-      {friends.map(friend => {
-        const { avatar, name, isOnline, id } = friend;
-        return (
-          <li className="item" key={id}>
-            {isOnline ? (
-              <span className="status active">yes</span>
-            ) : (
-              <span className="status">no</span>
-            )}
-            {/* <span className="status">{isOnline}</span> */}
-            <img className="avatar" src={avatar} alt={name} width="48" />
-            <p className="name">{name}</p>
-          </li>
-        );
-      })}
-    </ul>
+    <div className={st.container}>
+      <section className={st.friends}>
+        <ul className={st.friend__list}>
+          {friends.map(friend => {
+            const { avatar, name, isOnline, id } = friend;
+            return (
+              <li className={st.item} key={id}>
+                {isOnline ? (
+                  <span className={st.active}></span>
+                ) : (
+                  <span className={st.offline}></span>
+                )}
+                <div className={st.thumb}>
+                  <img
+                    className={st.avatar}
+                    src={avatar}
+                    alt={name}
+                    width="48"
+                  />
+                </div>
+                <p className={st.name}>{name}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    </div>
   );
 };
 
@@ -31,5 +42,3 @@ FriendsList.propTypes = {
   id: PropTypes.number,
 };
 export default FriendsList;
-// {isOnline ? <span className="status active"></span> :
-// <span className="status"></span>}

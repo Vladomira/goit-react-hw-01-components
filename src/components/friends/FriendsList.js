@@ -1,34 +1,17 @@
 import PropTypes from 'prop-types';
-import friendsData from './friends.json';
+import FriendItem from './Frienditem';
 import st from './Friends.module.css';
 
-const FriendsList = title => {
-  const friends = friendsData;
+const FriendsList = ({ friends }) => {
   return (
     <div className={st.container}>
       <section className={st.friends}>
         <ul className={st.friend__list}>
-          {friends.map(friend => {
-            const { avatar, name, isOnline, id } = friend;
-            return (
-              <li className={st.item} key={id}>
-                {isOnline ? (
-                  <span className={st.active}></span>
-                ) : (
-                  <span className={st.offline}></span>
-                )}
-                <div className={st.thumb}>
-                  <img
-                    className={st.avatar}
-                    src={avatar}
-                    alt={name}
-                    width="48"
-                  />
-                </div>
-                <p className={st.name}>{name}</p>
-              </li>
-            );
-          })}
+          {friends.map(({ avatar, name, isOnline, id }) => (
+            <li className={st.item} key={id}>
+              <FriendItem avatar={avatar} name={name} isOnline={isOnline} />
+            </li>
+          ))}
         </ul>
       </section>
     </div>

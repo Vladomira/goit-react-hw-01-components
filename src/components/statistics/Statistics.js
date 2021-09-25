@@ -1,14 +1,6 @@
-import statisticalData from './statistics.json';
+import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
-const data = statisticalData;
-
-function generateRandomColor() {
-  let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
-  while (color.length < 6) {
-    color = '0' + color;
-  }
-  return '#' + color;
-}
+import generateRandomColor from './colorGenerator';
 
 const Statistic = ({ title, stats }) => {
   return (
@@ -17,7 +9,7 @@ const Statistic = ({ title, stats }) => {
         {title && <h2 className={styles.title}>{title}</h2>}
 
         <ul className={styles.stat__list}>
-          {data.map(el => {
+          {stats.map(el => {
             const { label, id, percentage } = el;
             return (
               <li
@@ -36,4 +28,14 @@ const Statistic = ({ title, stats }) => {
   );
 };
 
+Statistic.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }),
+  ),
+};
 export default Statistic;

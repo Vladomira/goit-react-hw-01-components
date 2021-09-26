@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import 'modern-normalize/modern-normalize.css';
 import App from './components/App';
 import './index.css';
-// import './components/container/container.css';
 
 ReactDom.render(<App />, document.querySelector('#root'));
 
@@ -13,7 +12,6 @@ ReactDom.render(<App />, document.querySelector('#root'));
 //   </React.StrictMode>,
 //   document.getElementById('#root'),
 // );
-
 // ====================
 // const el1 = <span>Hello</span>;
 // const el2 = <span>World</span>;

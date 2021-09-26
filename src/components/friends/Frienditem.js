@@ -1,14 +1,10 @@
 import PropTypes from 'prop-types';
 import st from './Friends.module.css';
 
-const FriendItem = ({ avatar, name, isOnline, id }) => {
+const FriendItem = ({ avatar, name, isOnline }) => {
   return (
     <>
-      {isOnline ? (
-        <span className={st.active}></span>
-      ) : (
-        <span className={st.offline}></span>
-      )}
+      <span className={isOnline ? st.active : st.offline}></span>
       <div className={st.thumb}>
         <img className={st.avatar} src={avatar} alt={name} width="48" />
       </div>
